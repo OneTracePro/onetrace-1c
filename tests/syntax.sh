@@ -24,7 +24,7 @@ while IFS= read -r -d '' module; do
     # Директивы компиляции (&НаКлиенте …) OneScript не знает — убираются, номера строк сохраняются.
     vars="$globals"
     [[ "$module" == */Forms/* ]] && vars="$globals, $form_globals"
-    { printf 'Перем %s;\n' "$vars"; sed -E 's/^&На[А-Яа-я]+$//' "$module"; printf '%s\n' "$stubs"; } > "$copy"
+    { printf 'Перем %s;\n' "$vars"; sed -E 's/^&На[^[:space:]]+$//' "$module"; printf '%s\n' "$stubs"; } > "$copy"
     if output=$(docker run --rm -v "$work":/w -w /w evilbeaver/onescript:latest oscript -check "/w/$(basename "$copy")" 2>&1) && [[ "$output" == *"No errors."* ]]; then
         echo "ok   $module"
     else
