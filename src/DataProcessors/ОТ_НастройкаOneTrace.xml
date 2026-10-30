@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<DataProcessor uuid="60c6aeaa-522b-49bf-be9d-73f7ad305854">
+		<InternalInfo>
+			<xr:GeneratedType name="DataProcessorObject.ОТ_НастройкаOneTrace" category="Object">
+				<xr:TypeId>fcfa3812-d8d8-4f5a-b0d0-5a04d3e3f329</xr:TypeId>
+				<xr:ValueId>b77866eb-afce-4eb9-83f8-17a96f58ddff</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DataProcessorManager.ОТ_НастройкаOneTrace" category="Manager">
+				<xr:TypeId>aafe5fb2-2e4c-4f31-a02d-ee7de8b841d9</xr:TypeId>
+				<xr:ValueId>4fc173ee-db7c-4472-b6a3-64f9d9b8389f</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>ОТ_НастройкаOneTrace</Name>
+			<Synonym>
+				<v8:item><v8:lang>ru</v8:lang><v8:content>OneTrace: настройка</v8:content></v8:item>
+			</Synonym>
+			<Comment/>
+			<UseStandardCommands>true</UseStandardCommands>
+			<DefaultForm>DataProcessor.ОТ_НастройкаOneTrace.Form.Форма</DefaultForm>
+			<AuxiliaryForm/>
+			<IncludeHelpInContents>false</IncludeHelpInContents>
+			<ExtendedPresentation/>
+			<Explanation>
+				<v8:item><v8:lang>ru</v8:lang><v8:content>Адрес платформы, секретный ключ и отправка чеков в OneTrace.pro</v8:content></v8:item>
+			</Explanation>
+		</Properties>
+		<ChildObjects>
+			<Form>Форма</Form>
+		</ChildObjects>
+	</DataProcessor>
+</MetaDataObject>

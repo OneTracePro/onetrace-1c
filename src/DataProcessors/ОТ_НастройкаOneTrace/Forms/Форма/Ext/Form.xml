@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<Title>
+		<v8:item><v8:lang>ru</v8:lang><v8:content>OneTrace: офлайн-чеки</v8:content></v8:item>
+	</Title>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаСохранить" id="19">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Сохранить</CommandName>
+				<ExtendedTooltip name="ФормаСохранитьРасширеннаяПодсказка" id="20"/>
+			</Button>
+			<Button name="ФормаПроверитьПодключение" id="21">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПроверитьПодключение</CommandName>
+				<ExtendedTooltip name="ФормаПроверитьПодключениеРасширеннаяПодсказка" id="22"/>
+			</Button>
+			<Button name="ФормаОтправитьСейчас" id="23">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ОтправитьСейчас</CommandName>
+				<ExtendedTooltip name="ФормаОтправитьСейчасРасширеннаяПодсказка" id="24"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Адрес" id="1">
+			<DataPath>Адрес</DataPath>
+			<InputHint>
+				<v8:item><v8:lang>ru</v8:lang><v8:content>https://cdp.onetrace.pro — адрес, по которому вы открываете OneTrace</v8:content></v8:item>
+			</InputHint>
+			<ContextMenu name="АдресКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="АдресРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="Ключ" id="4">
+			<DataPath>Ключ</DataPath>
+			<PasswordMode>true</PasswordMode>
+			<ContextMenu name="КлючКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="КлючРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="Событие" id="7">
+			<DataPath>Событие</DataPath>
+			<InputHint>
+				<v8:item><v8:lang>ru</v8:lang><v8:content>order_completed</v8:content></v8:item>
+			</InputHint>
+			<ContextMenu name="СобытиеКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="СобытиеРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<InputField name="ПолеТовара" id="10">
+			<DataPath>ПолеТовара</DataPath>
+			<ListChoiceMode>true</ListChoiceMode>
+			<ContextMenu name="ПолеТовараКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ПолеТовараРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<InputField name="ВыгружатьС" id="13">
+			<DataPath>ВыгружатьС</DataPath>
+			<ToolTip>
+				<v8:item><v8:lang>ru</v8:lang><v8:content>Пусто — за последние 30 дней. Смена даты отправляет чеки с неё заново.</v8:content></v8:item>
+			</ToolTip>
+			<ContextMenu name="ВыгружатьСКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="ВыгружатьСРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<InputField name="Состояние" id="16">
+			<DataPath>Состояние</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<MultiLine>true</MultiLine>
+			<Height>5</Height>
+			<ContextMenu name="СостояниеКонтекстноеМеню" id="17"/>
+			<ExtendedTooltip name="СостояниеРасширеннаяПодсказка" id="18"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="25">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ОТ_НастройкаOneTrace</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Адрес" id="26">
+			<Title>
+				<v8:item><v8:lang>ru</v8:lang><v8:content>Адрес платформы</v8:content></v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>200</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Ключ" id="27">
+			<Title>
+				<v8:item><v8:lang>ru</v8:lang><v8:content>Секретный ключ API</v8:content></v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>200</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Событие" id="28">
+			<Title>
+				<v8:item><v8:lang>ru</v8:lang><v8:content>Событие покупки</v8:content></v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>200</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПолеТовара" id="29">
+			<Title>
+				<v8:item><v8:lang>ru</v8:lang><v8:content>id товара в каталоге OneTrace</v8:content></v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВыгружатьС" id="30">
+			<Title>
+				<v8:item><v8:lang>ru</v8:lang><v8:content>Выгружать чеки с</v8:content></v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Состояние" id="31">
+			<Title>
+				<v8:item><v8:lang>ru</v8:lang><v8:content>Состояние</v8:content></v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Сохранить" id="32">
+			<Title>
+				<v8:item><v8:lang>ru</v8:lang><v8:content>Сохранить</v8:content></v8:item>
+			</Title>
+			<Action>Сохранить</Action>
+		</Command>
+		<Command name="ПроверитьПодключение" id="33">
+			<Title>
+				<v8:item><v8:lang>ru</v8:lang><v8:content>Проверить подключение</v8:content></v8:item>
+			</Title>
+			<Action>ПроверитьПодключение</Action>
+		</Command>
+		<Command name="ОтправитьСейчас" id="34">
+			<Title>
+				<v8:item><v8:lang>ru</v8:lang><v8:content>Отправить сейчас</v8:content></v8:item>
+			</Title>
+			<Action>ОтправитьСейчас</Action>
+		</Command>
+	</Commands>
+</Form>

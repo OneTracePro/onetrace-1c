@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    name: Syntax and core (OneScript)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: docker pull -q evilbeaver/onescript:latest
+      - name: Syntax of all modules, core against the mock platform
+        run: tests/run.sh
+
+  release:
+    name: Release archive
+    needs: test
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      # The extension sources for "Load extension from files" and the docs; the release is created on GitHub first.
+      - run: |
+          mkdir -p dist/onetrace-1c
+          cp -r src README.md README.ru.md LICENSE CHANGELOG.md dist/onetrace-1c/
+          (cd dist && zip -qr onetrace-1c.zip onetrace-1c)
+      - run: gh release upload "$GITHUB_REF_NAME" dist/onetrace-1c.zip --clobber
+        env:
+          GH_TOKEN: ${{ github.token }}
